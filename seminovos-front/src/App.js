@@ -14,6 +14,11 @@ function App() {
         text: 'Preço de carros seminovos'
     },
 
+    chart: {
+      type: 'scatter',
+      zoomType: 'xy'
+    },
+
     subtitle: {
         text: 'Source: Olx PE'
     },
@@ -89,7 +94,7 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://40.114.104.52:5000/getCars");
+      const response = await fetch("http://localhost:5000/getCars");
       const responseJson = await response.json();
 
       console.log(responseJson[0]);
