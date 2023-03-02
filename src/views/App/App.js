@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import Car from '../../components/Car/Car'
+import "./App.scss";
 
-import Chart from "./components/Chart";
+import Chart from "../../components/Chart";
 
 function App() {
   const [cars, setCars] = useState([]);
@@ -36,16 +38,9 @@ function App() {
       <>
         <Chart chartSeries={chartData}></Chart>
         <div className="App">
-          <h1>Lista de carros</h1>
+          <h1 style={{ width: "100%" }}>Lista de carros</h1>
           {cars.map((car) => {
-            return (
-              <div className="carCard" key={car._id}>
-                <img src={car.img}></img>
-                <div>
-                  <h4>{car.announceName}</h4>
-                </div>
-              </div>
-            );
+            return <Car car={car} />;
           })}
         </div>
       </>
