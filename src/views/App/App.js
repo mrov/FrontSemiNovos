@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Car from '../../components/Car/Car'
+import Car from "../../components/Car/Car";
 import "./App.scss";
 
 import Chart from "../../components/Chart";
@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://gist.githubusercontent.com/mrov/f0080f612f1f20cf33a54a25f8bb85ee/raw/342d9a6087f3cca28a021ee8838cf93311945423/cars.json"
+        `http://${process.env.REACT_APP_API_URI}/getCars`
       );
       const responseJson = await response.json();
 
