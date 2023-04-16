@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `http://${process.env.REACT_APP_API_URI}/getCars`
+        `http://${process.env.REACT_APP_API_URI}/Cars`
       );
       const responseJson = await response.json();
 
@@ -20,7 +20,7 @@ function App() {
       setChartData(
         responseJson.map((car) => {
           return {
-            x: new Date(car.postDate["$date"]),
+            x: new Date(car.postDate),
             y: car.price,
             formattedPrice: car.formattedPrice,
             name: car.announceName,
